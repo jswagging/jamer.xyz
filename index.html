@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bio</title>
+
+    <style>
+        body {
+            background: #111;
+            color: #eaeaea;
+            font-family: Arial, sans-serif;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        body.light {
+            background: white;
+            color: black;
+        }
+
+        body.light a {
+            color: #0000ee;
+        }
+
+        body:not(.light) a {
+            color: #8aa2ff;
+        }
+
+        #darkModeToggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="darkModeToggle">light mode</div>
+
+<h1>welcome</h1>
+
+<p>
+hi, im jamer.<br>
+he/him<br>
+im an image editor<br>
+i also like gaming<br>
+
+<h1>\/ questions \/</h1>
+
+<h2>"what do you use to edit images?"</h2>
+
+i use <a href="https://photopea.com">photopea</a> for all my edited images.</p>
+
+<h2>"what games do you play?"</h2>
+
+steam games (and another game that shall not be mentioned)
+
+<h3>there may still be questions, but i wont answer them. (because i wont touch this website ever again)</h3>
+
+<h1>socials</h1>
+<ul>
+    <li><a href="https://jswagging.github.io">this website</a></li>
+    <li><a href="https://github.com/jswagging">github</a></li>
+    <li><a href="https://discord.gg/RXsQQ4eGYF">i helped this server</a></li>
+    <li><a href="https://x.com/america">the last place ill be going</a></li>
+</ul>
+
+<script>
+    const toggle = document.getElementById("darkModeToggle");
+
+    if (localStorage.getItem("mode") === "light") {
+        document.body.classList.add("light");
+        toggle.textContent = "dark mode";
+    }
+
+    toggle.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+
+        if (document.body.classList.contains("light")) {
+            localStorage.setItem("mode", "light");
+            toggle.textContent = "dark mode";
+        } else {
+            localStorage.setItem("mode", "dark");
+            toggle.textContent = "light mode";
+        }
+    });
+</script>
+
+</body>
+</html>
+
