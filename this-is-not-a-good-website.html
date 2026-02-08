@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this is not a good website.</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #number {
+      font-size: 1.8rem;
+      padding: 20px 40px;
+      border-radius: 10px;
+      background: #fff;
+      margin: 20px;
+      min-width: 250px;
+      transition: transform 0.12s cubic-bezier(.25,.46,.45,.94);
+      border: 1px solid #ccc;
+    }
+
+    button {
+      font-size: 1.1rem;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+      margin: 10px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #0056b3;
+    }
+
+    #rare {
+      margin-top: 20px;
+      font-size: 1rem;
+      padding: 8px 15px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      display: inline-block;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rolling Machine</h1>
+  <div id="number">Click roll to roll.</div>
+  <button onclick="startRoll()">Roll</button>
+  <div id="rare">Rarest Roll: None...</div>
+
+  <audio id="clickSound" src="click.ogg" preload="auto"></audio>
+
+  <script>
+    const rolls = [
+      { NameList: ["Apple","Banana","Cherry","Orange","Blueberry","Blackberry","Pear"], chance: 800, color: "black", OneIn: 2 },
+      { NameList: ["Emerald","Sapphire","Topaz","Nickel","Copper"], chance: 150, color: "green", OneIn: 7 },
+      { NameList: ["Diamond","Ruby","Amethyst","Titanium","Zinc"], chance: 40, color: "blue", OneIn: 25 },
+      { NameList: ["Phoenix Feather","Dragon Scale","Golden Apple","Time Clock","cat"], chance: 9, color: "magenta", OneIn: 100 },
+      { NameList: ["Excalibur","Legendary Crown","The Moon","nil","1 in 1000","Legendary Chain"], chance: 4, color: "gold", OneIn: 1000 }
+    ];
+
+    let rarestRoll = null;
+    let isSpinning = false;
+    const clickSound = document.getElementById("clickSound");
+
+    function getRoll() {
+      let total = rolls.reduce((sum, r) => sum + r.chance, 0);
+      let randomNum = Math.floor(Math.random() * total) + 1;
+      let cumulative = 0;
+      for (let r of rolls) {
+        cumulative += r.chance;
+        if (randomNum <= cumulative) {
+          const pickedName = r.NameList[Math.floor(Math.random() * r.NameList.length)];
+          return { Name: pickedName, color: r.color, OneIn: r.OneIn };
+        }
+      }
+    }
+
+    function updateRarest(result) {
+      if (!rarestRoll || result.OneIn >= rarestRoll.OneIn) {
+        rarestRoll = result;
+        const rare = document.getElementById("rare");
+        rare.textContent = `Rarest Roll: ${result.Name} | 1 in ${result.OneIn}`;
+        rare.style.color = result.color;
+      }
+    }
+
+    async function animateRoll(finalResult) {
+      isSpinning = true;
+      const number = document.getElementById("number");
+
+      for (let i = 0; i < 15; i++) {
+        let randomPick = getRoll();
+        number.textContent = `${randomPick.Name} | 1 in ${randomPick.OneIn}`;
+        number.style.color = randomPick.color;
+
+        clickSound.currentTime = 0;
+        clickSound.play();
+
+        number.style.transform = "translateY(-15px)";
+        await new Promise(r => setTimeout(r, 80));
+        number.style.transform = "translateY(0)";
+        await new Promise(r => setTimeout(r, 80));
+      }
+
+      number.textContent = `${finalResult.Name} | 1 in ${finalResult.OneIn}`;
+      number.style.color = finalResult.color;
+
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      number.style.transition = "transform 0.15s cubic-bezier(.68,-0.55,.27,1.55)";
+      number.style.transform = "translateY(-20px)";
+      await new Promise(r => setTimeout(r, 150));
+      number.style.transform = "translateY(0)";
+      await new Promise(r => setTimeout(r, 120));
+      number.style.transition = "transform 0.12s cubic-bezier(.25,.46,.45,.94)";
+
+      updateRarest(finalResult);
+      isSpinning = false;
+    }
+
+    function startRoll() {
+      if (isSpinning) return;
+      let result = getRoll();
+      animateRoll(result);
+    }
+  </script>
+</body>
+<footer style="margin-top: 40px; text-align: center; font-size: 14px; color: #555;">
+  <a href="https://github.com/jswagging/this-is-not-a-good-website" target="_blank">Source Code</a>
+  &nbsp;|&nbsp;
+  <a href="https://discord.gg/tvrGThftmg" target="_blank">Discord</a>
+</footer>
+</body>
+</html>
