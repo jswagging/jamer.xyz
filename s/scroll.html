@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>eternal scroller</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#111, #222);
+    color: white;
+}
+
+.section {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+</style>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script>
+let count = 0;
+const content = document.getElementById("content");
+
+function addSection() {
+    count++;
+    const section = document.createElement("div");
+    section.className = "section";
+    section.textContent = "Section #" + count;
+    content.appendChild(section);
+}
+
+for (let i = 0; i < 10; i++) {
+    addSection();
+}
+
+window.addEventListener("scroll", () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+        for (let i = 0; i < 5; i++) {
+            addSection();
+        }
+    }
+});
+</script>
+
+</body>
+</html>
