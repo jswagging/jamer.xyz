@@ -16,28 +16,6 @@
             margin: 0;
         }
 
-        body.light {
-            background: white;
-            color: black;
-        }
-
-        body.light a {
-            color: #0000ee;
-        }
-
-        body:not(.light) a {
-            color: #8aa2ff;
-        }
-
-        #darkModeToggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: underline;
-        }
-
         .container {
             max-width: 700px;
             margin: 80px auto;
@@ -60,8 +38,6 @@
 
 <body>
 
-<div id="darkModeToggle">light mode</div>
-
 <div class="container">
 
 <h1>404</h1>
@@ -76,27 +52,6 @@ i don't know what this page is ¯\_(ツ)_/¯<br>
 <a href="https://jamer.xyz">← go back home</a>
 
 </div>
-
-<script>
-    const toggle = document.getElementById("darkModeToggle");
-
-    if (localStorage.getItem("mode") === "light") {
-        document.body.classList.add("light");
-        toggle.textContent = "dark mode";
-    }
-
-    toggle.addEventListener("click", () => {
-        document.body.classList.toggle("light");
-
-        if (document.body.classList.contains("light")) {
-            localStorage.setItem("mode", "light");
-            toggle.textContent = "dark mode";
-        } else {
-            localStorage.setItem("mode", "dark");
-            toggle.textContent = "light mode";
-        }
-    });
-</script>
 
 </body>
 </html>
