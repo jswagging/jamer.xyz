@@ -1,122 +1,190 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>jamer.xyz</title>
-    <meta content="jamer.xyz" property="og:title" />
+	<title>jamer.xyz</title>
+	<meta content="jamer.xyz" property="og:title" />
     <meta content="this is my embed for discord" property="og:description" />
     <meta content="https://raw.githubusercontent.com/jswagging/jamer.xyz/refs/heads/main/resources/images/icon3.png" property="og:image" />
     <meta content="#FFAC1C" data-react-helmet="true" name="theme-color" />
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/jswagging/jamer.xyz/refs/heads/main/resources/images/j.png" type="image/x-icon">
+	<meta content="summary_large_image" name="twitter:card" />
+	<meta content="website" property="og:type" />
+	<meta content="" property="og:description" />
+	<meta content="" property="og:url" />
+	<meta content="resources/images/1_14393802_large.jpg" property="og:image" />
+	<meta content="" property="og:title" />
+	<meta content="" name="description" />
+	<meta charset="utf-8" />
+	<meta content="width=device-width" name="viewport" />
+	<style>
+		.bee-row,
+		.bee-row-content {
+			position: relative
+		}
 
-    <style>
-        body {
-            background: #111;
-            color: #eaeaea;
-            font-family: Arial, sans-serif;
-            transition: background 0.2s, color 0.2s;
-            text-align: center;
-            margin: 0;
-        }
+		.bee-row-1,
+		.bee-row-1 .bee-row-content {
+			background-repeat: no-repeat
+		}
 
-        body.light {
-            background: white;
-            color: black;
-        }
+		body {
+			background-color: #1f1f1f;
+			color: #000000;
+			font-family: Arial, Helvetica, sans-serif
+		}
 
-        body.light a {
-            color: #0000ee;
-        }
+		a {
+			color: #7747FF
+		}
 
-        body:not(.light) a {
-            color: #8aa2ff;
-        }
+		* {
+			box-sizing: border-box
+		}
 
-        #darkModeToggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: underline;
-        }
+		body,
+		h1,
+		p {
+			margin: 0
+		}
 
-        nav {
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+		.bee-row-content {
+			max-width: 765px;
+			margin: 0 auto;
+			display: flex
+		}
 
-        body.light nav {
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
+		.bee-row-content .bee-col-w12 {
+			flex-basis: 100%
+		}
 
-        nav a {
-            margin: 0 12px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+		.bee-button a {
+			text-decoration: none
+		}
 
-        ul {
-            list-style-position: inside;
-            padding: 0;
-            margin: 0 auto;
-        }
+		.bee-button-content {
+			text-align: center
+		}
 
-        .container {
-            max-width: 700px;
-            margin: 40px auto;
-        }
-    </style>
+		.bee-divider {
+			overflow: auto
+		}
+
+		.bee-divider .center {
+			margin: 0 auto
+		}
+
+		.bee-paragraph {
+			overflow-wrap: anywhere
+		}
+
+		.bee-social .icon img {
+			max-height: 32px
+		}
+
+		@media (max-width:785px) {
+			.bee-row-content:not(.no_stack) {
+				display: block
+			}
+		}
+
+		.bee-row-1 .bee-row-content {
+			color: #000000
+		}
+
+		.bee-row-1 .bee-col-1 {
+			padding-bottom: 5px;
+			padding-top: 5px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-1 {
+			padding: 10px;
+			text-align: center;
+			width: 100%
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-2,
+		.bee-row-1 .bee-col-1 .bee-block-3 {
+			padding: 10px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-4,
+		.bee-row-1 .bee-col-1 .bee-block-5 {
+			padding: 10px;
+			text-align: center
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-1 h1 {
+			color: #ffffff;
+			direction: ltr;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 38px;
+			font-weight: 700;
+			letter-spacing: normal;
+			line-height: 120%;
+			text-align: left
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-2,
+		.bee-row-1 .bee-col-1 .bee-block-4 div {
+			color: #ffffff;
+			direction: ltr;
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 0
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-2 {
+			line-height: 120%;
+			text-align: left
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-2 a {
+			color: #ffffff
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-2 p:not(:last-child) {
+			margin-bottom: 16px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-4 div {
+			background-color: #3c3c3c;
+			border-radius: 4px;
+			font-family: inherit;
+			line-height: 200%;
+			padding: 5px 20px;
+			width: auto
+		}
+	</style>
 </head>
 
 <body>
-
-<div id="darkModeToggle">light mode</div>
-
-<div class="container">
-
-<h1 id="welcome">welcome</h1>
-
-<p>
-welcome to jamer.xyz, please select where you would like to go...<br>
-</p>
-
-<a href="https://jamer.xyz/s/bio">bio</a><br>
-<br>
-<a href="https://jamer.xyz/s/this-is-not-a-good-website">this is not a good website</a><br>
-<a href="https://jamer.xyz/s/secret">secret website thing</a><br>
-<a href="https://jamer.xyz/s/scroll">eternal scroller</a><br>
-<a href="https://jamer.xyz/s/fredlist">the fredlist</a>
-
-<h1 id="socials">socials</h1>
-
-<a href="https://jamer.xyz">this website</a><br>
-<a href="https://github.com/jswagging">github</a><br>
-<a href="https://discord.gg/RXsQQ4eGYF">i helped this server</a><br>
-<a href="https://x.com/america">the last place ill be going</a>
-
-</div>
-
-<script>
-    const toggle = document.getElementById("darkModeToggle");
-
-    if (localStorage.getItem("mode") === "light") {
-        document.body.classList.add("light");
-        toggle.textContent = "dark mode";
-    }
-
-    toggle.addEventListener("click", () => {
-        document.body.classList.toggle("light");
-
-        if (document.body.classList.contains("light")) {
-            localStorage.setItem("mode", "light");
-            toggle.textContent = "dark mode";
-        } else {
-            localStorage.setItem("mode", "dark");
-            toggle.textContent = "light mode";
-        }
-    });
-</script>
-
+	<div class="bee-page-container">
+		<div class="bee-row bee-row-1">
+			<div class="bee-row-content">
+				<div class="bee-col bee-col-1 bee-col-w12">
+					<div class="bee-block bee-block-1 bee-heading">
+						<h1><span class="tinyMce-placeholder">Jamer</span> </h1>
+					</div>
+					<div class="bee-block bee-block-2 bee-paragraph">
+						<p>pronounced "jay-mer"</p>
+						<p><em>noun</em></p>
+						<p>i dunno who is that oh wait hes the guy who made this website i still dont know him though</p>
+						<p>"cam"</p>
+					</div>
+					<div class="bee-block bee-block-3 bee-divider">
+						<div class="center bee-separator" style="border-top:1px solid #dddddd;width:100%;"></div>
+					</div>
+					<div class="bee-block bee-block-4 bee-button">
+						<div class="bee-button-content" style="font-size:16px;display:inline-block;cursor:pointer;" onclick="window.location.href='https://jamer.xyz/dir.html'"><span style="word-break:break-word;font-size:16px;line-height:200%;letter-spacing:normal;">press me to go to websites</span></div>
+					</div>
+					<div class="bee-block bee-block-5 bee-social">
+						<div class="content"><span class="icon" style="padding:0 5px 0 5px;"><a href="https://www.youtube.com/@JamerchGIT" target="_blank"><img alt="my youtube channel" src="images/2_youtube2x.png" title="youtube" /></a></span><span class="icon" style="padding:0 5px 0 5px;"><a href="https://jamer.xyz" target="_blank"><img alt="this website" src="images/3_website2x.png" title="jamer.xyz" /></a></span><span class="icon" style="padding:0 5px 0 5px;"><a href="https://x.com/dingodugong" target="_blank"><img alt="my twitter" src="images/4_twitter2x.png" title="twitter" /></a></span><span class="icon" style="padding:0 5px 0 5px;"><a href="https://github.com/jswagging" target="_blank"><img alt="my github" src="images/5_8ea3439e-fa09-4b1c-ad99-b2454c17a855.png" title="github" /></a></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-</html>
 
+</html>
