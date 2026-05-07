@@ -1,85 +1,289 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
+
 <head>
-    <title>bio</title>
+	<title>bio</title>
+	<meta content="summary_large_image" name="twitter:card" />
+	<meta content="website" property="og:type" />
+	<meta content="" property="og:description" />
+	<meta content="" property="og:url" />
+	<meta content="resources/images/1_14395441_large.jpg" property="og:image" />
+	<meta content="" property="og:title" />
+	<meta content="" name="description" />
+	<meta charset="utf-8" />
+	<meta content="width=device-width" name="viewport" />
+	<style>
+		.bee-row,
+		.bee-row-content {
+			position: relative
+		}
 
-    <style>
-        body {
-            background: #111;
-            color: #eaeaea;
-            font-family: Arial, sans-serif;
-            transition: background 0.2s, color 0.2s;
-        }
+		.bee-row-1,
+		.bee-row-1 .bee-row-content {
+			background-repeat: no-repeat
+		}
 
-        body.light {
-            background: white;
-            color: black;
-        }
+		.bee-row-1 .bee-col-1 .bee-block-6 .bee-button-container {
+			text-align: center
+		}
 
-        body.light a {
-            color: #0000ee;
-        }
+		body {
+			background-color: #1f1f1f;
+			color: #000000;
+			font-family: Arial, Helvetica, sans-serif
+		}
 
-        body:not(.light) a {
-            color: #8aa2ff;
-        }
+		a {
+			color: #7747FF
+		}
 
-        #darkModeToggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: underline;
-        }
-    </style>
+		* {
+			box-sizing: border-box
+		}
+
+		body,
+		h1,
+		p {
+			margin: 0
+		}
+
+		.bee-row-content {
+			max-width: 765px;
+			margin: 0 auto;
+			display: flex
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 div.label:not(.inline),
+		.bee-row-1 .bee-col-1 .bee-block-6 label:not(.inline),
+		.bee-row-content .bee-col-w12 {
+			flex-basis: 100%
+		}
+
+		.bee-divider {
+			overflow: auto
+		}
+
+		.bee-divider .center {
+			margin: 0 auto
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 .bee-form-row:not(.bee-sidelabel) input:not([type=checkbox]):not([type=radio]) {
+			width: 100%
+		}
+
+		.bee-form .bee-form-row .bee-field {
+			padding: 3px;
+			display: flex;
+			flex: 1;
+			flex-wrap: wrap;
+			align-items: center
+		}
+
+		.bee-form .bee-form-row .bee-field input:not([type=checkbox]):not([type=radio]),
+		.bee-form .bee-form-row .bee-field textarea {
+			flex-grow: 1;
+			font-family: inherit;
+			font-size: inherit
+		}
+
+		.bee-form .bee-form-row .bee-field button {
+			font-family: inherit;
+			font-size: inherit;
+			cursor: pointer
+		}
+
+		.bee-form .bee-form-row .bee-field .bee-button-container {
+			flex-grow: 1
+		}
+
+		.bee-paragraph {
+			overflow-wrap: anywhere
+		}
+
+		@media (max-width:785px) {
+			.bee-form form {
+				width: 100% !important
+			}
+
+			.bee-row-content:not(.no_stack) {
+				display: block
+			}
+		}
+
+		.bee-row-1 .bee-row-content {
+			color: #000000
+		}
+
+		.bee-row-1 .bee-col-1 {
+			padding-bottom: 5px;
+			padding-top: 5px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-1,
+		.bee-row-1 .bee-col-1 .bee-block-5 {
+			padding: 10px;
+			text-align: center;
+			width: 100%
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-2,
+		.bee-row-1 .bee-col-1 .bee-block-3,
+		.bee-row-1 .bee-col-1 .bee-block-4 {
+			padding: 10px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-3 {
+			color: #ffffff;
+			direction: ltr;
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 0;
+			line-height: 120%;
+			text-align: left
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-3 a {
+			color: #479dff
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-3 p:not(:last-child) {
+			margin-bottom: 16px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-1 h1,
+		.bee-row-1 .bee-col-1 .bee-block-5 h1 {
+			color: #ffffff;
+			direction: ltr;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 38px;
+			font-weight: 700;
+			letter-spacing: normal;
+			line-height: 120%;
+			text-align: left
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 {
+			font-family: inherit;
+			font-size: 16px;
+			font-weight: 400;
+			padding: 10px;
+			text-align: center
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 form {
+			display: inline-block;
+			width: 100%
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 div.label,
+		.bee-row-1 .bee-col-1 .bee-block-6 label {
+			color: #ffffff;
+			letter-spacing: normal;
+			line-height: 200%;
+			text-align: left;
+			display: block
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 ::-webkit-input-placeholder {
+			color: #000000
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 :-moz-placeholder {
+			color: #000000
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 ::-moz-placeholder {
+			color: #000000
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 :-ms-input-placeholder {
+			color: #000000
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 .bee-field>label:first-child,
+		.bee-row-1 .bee-col-1 .bee-block-6 div.label {
+			padding: 3px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 input:not([type=checkbox]):not([type=radio]):not([type=image]),
+		.bee-row-1 .bee-col-1 .bee-block-6 textarea {
+			background-color: #ffffff;
+			border-bottom: 1px solid transparent;
+			border-left: 1px solid transparent;
+			border-radius: 4px;
+			border-right: 1px solid transparent;
+			border-top: 1px solid transparent;
+			color: #000000;
+			padding: 5px;
+			min-height: 42px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 input:not([type=checkbox]):not([type=radio]):focus,
+		.bee-row-1 .bee-col-1 .bee-block-6 textarea:focus {
+			outline-color: #ffffff
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-6 button {
+			background-color: #3c3c3c;
+			border-bottom: 0 solid transparent;
+			border-left: 0 solid transparent;
+			border-radius: 4px;
+			border-right: 0px solid transparent;
+			border-top: 0 solid transparent;
+			color: #ffffff;
+			letter-spacing: normal;
+			line-height: 200%;
+			padding: 5px 20px;
+			width: 100%
+		}
+	</style>
 </head>
 
 <body>
-
-<div id="darkModeToggle">light mode</div>
-
-<h1>bio</h1>
-
-<p>
-hi, im jamer<br>
-he/him<br>
-i like making thumbnails (i know a bit)<br>
-
-<h1>\/ questions \/</h1>
-
-<h2>"what do you use to edit thumbnails?"</h2>
-
-i use <a href="https://photopea.com">photopea</a> for all my thumbnails</p>
-
-<h2>"what games do you play?"</h2>
-
-steam games and roblox<br>
-<br>
-<br>
-click <a href="https://jamer.xyz">here</a> to go back to main page
-
-<script>
-    const toggle = document.getElementById("darkModeToggle");
-
-    if (localStorage.getItem("mode") === "light") {
-        document.body.classList.add("light");
-        toggle.textContent = "dark mode";
-    }
-
-    toggle.addEventListener("click", () => {
-        document.body.classList.toggle("light");
-
-        if (document.body.classList.contains("light")) {
-            localStorage.setItem("mode", "light");
-            toggle.textContent = "dark mode";
-        } else {
-            localStorage.setItem("mode", "dark");
-            toggle.textContent = "light mode";
-        }
-    });
-</script>
-
+	<div class="bee-page-container">
+		<div class="bee-row bee-row-1">
+			<div class="bee-row-content">
+				<div class="bee-col bee-col-1 bee-col-w12">
+					<div class="bee-block bee-block-1 bee-heading">
+						<h1><span class="tinyMce-placeholder">bio</span> </h1>
+					</div>
+					<div class="bee-block bee-block-2 bee-divider">
+						<div class="center bee-separator" style="border-top:1px solid #dddddd;width:100%;"></div>
+					</div>
+					<div class="bee-block bee-block-3 bee-paragraph">
+						<p>hi, im jamer</p>
+						<p>he/him</p>
+						<p>i like editing images with <a href="https://photopea.com" rel="noopener" style="text-decoration: underline;" target="_blank">photopea</a></p>
+						<p>for contacts please use the contact thing below</p>
+					</div>
+					<div class="bee-block bee-block-4 bee-divider">
+						<div class="center bee-separator" style="border-top:1px solid #dddddd;width:100%;"></div>
+					</div>
+					<div class="bee-block bee-block-5 bee-heading">
+						<h1><span class="tinyMce-placeholder">Contact</span> </h1>
+					</div>
+					<div class="bee-block bee-block-6 bee-form">
+						<form accept-charset="UTF-8" action="ACTION_PLACEHOLDER" autocomplete="on" enctype="multipart/form-data" method="post" target="_self">
+							<div class="bee-form-row">
+								<div class="bee-field bee-field-r0c0m5r1f1"><label for="r0c0m5r1f1">Name</label><input id="r0c0m5r1f1" name="firstname" required="" type="text" /></div>
+							</div>
+							<div class="bee-form-row">
+								<div class="bee-field bee-field-r0c0m5r3f1"><label for="r0c0m5r3f1">Email</label><input id="r0c0m5r3f1" name="email" required="" type="text" /></div>
+							</div>
+							<div class="bee-form-row">
+								<div class="bee-field bee-field-r0c0m5r7f1"><label for="r0c0m5r7f1">Message</label><textarea id="r0c0m5r7f1" name="message"></textarea></div>
+							</div>
+							<div class="bee-form-row">
+								<div class="bee-field bee-field-r0c0m5r11f1">
+									<div class="bee-button-container"><button id="r0c0m5r11f1" name="submit" type="submit" value="Send">Send</button></div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-</html>
 
+</html>
