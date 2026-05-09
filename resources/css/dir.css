@@ -93,17 +93,6 @@
 			text-align: left
 		}
 
-		.bee-row-1 .bee-col-1 .bee-block-1 h1 {
-			color: #ffffff;
-			direction: ltr;
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 38px;
-			font-weight: 700;
-			letter-spacing: normal;
-			line-height: 120%;
-			text-align: left
-		}
-
 		.bee-row-1 .bee-col-1 .bee-block-3,
 		.bee-row-1 .bee-col-1 .bee-block-5,
 		.bee-row-1 .bee-col-1 .bee-block-6,
@@ -134,7 +123,18 @@
 			margin-bottom: 16px
 		}
 
-		.bee-row-1 .bee-col-1 .bee-block-10 div {
+		.bee-row-1 .bee-col-1 .bee-block-1 h1 {
+			color: #ffffff;
+			direction: ltr;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 38px;
+			font-weight: 700;
+			letter-spacing: normal;
+			line-height: 120%;
+			text-align: left
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-10 a {
 			background-color: #3d3d3d;
 			border-radius: 4px;
 			color: #ffffff;
