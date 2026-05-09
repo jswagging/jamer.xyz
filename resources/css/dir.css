@@ -83,40 +83,14 @@
 		.bee-row-1 .bee-col-1 .bee-block-3,
 		.bee-row-1 .bee-col-1 .bee-block-5,
 		.bee-row-1 .bee-col-1 .bee-block-6,
-		.bee-row-1 .bee-col-1 .bee-block-8 {
+		.bee-row-1 .bee-col-1 .bee-block-7,
+		.bee-row-1 .bee-col-1 .bee-block-9 {
 			padding: 10px
 		}
 
-		.bee-row-1 .bee-col-1 .bee-block-9 {
+		.bee-row-1 .bee-col-1 .bee-block-10 {
 			padding: 10px;
 			text-align: left
-		}
-
-		.bee-row-1 .bee-col-1 .bee-block-3,
-		.bee-row-1 .bee-col-1 .bee-block-5,
-		.bee-row-1 .bee-col-1 .bee-block-6,
-		.bee-row-1 .bee-col-1 .bee-block-8 {
-			color: #ffffff;
-			direction: ltr;
-			font-size: 16px;
-			font-weight: 400;
-			letter-spacing: 0;
-			line-height: 120%;
-			text-align: left
-		}
-
-		.bee-row-1 .bee-col-1 .bee-block-3 a,
-		.bee-row-1 .bee-col-1 .bee-block-5 a,
-		.bee-row-1 .bee-col-1 .bee-block-6 a,
-		.bee-row-1 .bee-col-1 .bee-block-8 a {
-			color: #479dff
-		}
-
-		.bee-row-1 .bee-col-1 .bee-block-3 p:not(:last-child),
-		.bee-row-1 .bee-col-1 .bee-block-5 p:not(:last-child),
-		.bee-row-1 .bee-col-1 .bee-block-6 p:not(:last-child),
-		.bee-row-1 .bee-col-1 .bee-block-8 p:not(:last-child) {
-			margin-bottom: 16px
 		}
 
 		.bee-row-1 .bee-col-1 .bee-block-1 h1 {
@@ -130,8 +104,38 @@
 			text-align: left
 		}
 
+		.bee-row-1 .bee-col-1 .bee-block-3,
+		.bee-row-1 .bee-col-1 .bee-block-5,
+		.bee-row-1 .bee-col-1 .bee-block-6,
+		.bee-row-1 .bee-col-1 .bee-block-7,
+		.bee-row-1 .bee-col-1 .bee-block-9 {
+			color: #ffffff;
+			direction: ltr;
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 0;
+			line-height: 120%;
+			text-align: left
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-3 a,
+		.bee-row-1 .bee-col-1 .bee-block-5 a,
+		.bee-row-1 .bee-col-1 .bee-block-6 a,
+		.bee-row-1 .bee-col-1 .bee-block-7 a,
 		.bee-row-1 .bee-col-1 .bee-block-9 a {
-			background-color: #3c3c3c;
+			color: #479dff
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-3 p:not(:last-child),
+		.bee-row-1 .bee-col-1 .bee-block-5 p:not(:last-child),
+		.bee-row-1 .bee-col-1 .bee-block-6 p:not(:last-child),
+		.bee-row-1 .bee-col-1 .bee-block-7 p:not(:last-child),
+		.bee-row-1 .bee-col-1 .bee-block-9 p:not(:last-child) {
+			margin-bottom: 16px
+		}
+
+		.bee-row-1 .bee-col-1 .bee-block-10 div {
+			background-color: #3d3d3d;
 			border-radius: 4px;
 			color: #ffffff;
 			direction: ltr;
