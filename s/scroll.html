@@ -1,55 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>eternal scroller</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(#111, #222);
-    color: white;
-}
-
-.section {
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eternal scroller - jamer.xyz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../resources/css/scroll.css" />
 </head>
 <body>
 
-<div id="content"></div>
+  <div class="sticky-header">
+    <span class="header-title">eternal scroller</span>
+    <span class="header-count" id="counter">section #1</span>
+  </div>
 
-<script>
-let count = 0;
-const content = document.getElementById("content");
+  <div id="content"></div>
 
-function addSection() {
-    count++;
-    const section = document.createElement("div");
-    section.className = "section";
-    section.textContent = "Section #" + count;
-    content.appendChild(section);
-}
+  <script>
+    let count = 0;
+    const content = document.getElementById("content");
+    const counter = document.getElementById("counter");
 
-for (let i = 0; i < 10; i++) {
-    addSection();
-}
+    function addSection() {
+      count++;
+      const section = document.createElement("div");
+      section.className = "section";
 
-window.addEventListener("scroll", () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
-        for (let i = 0; i < 5; i++) {
-            addSection();
-        }
+      const num = document.createElement("span");
+      num.className = "section-number";
+      num.textContent = "#" + String(count).padStart(3, "0");
+
+      const label = document.createElement("span");
+      label.className = "section-label";
+      label.textContent = "Section";
+
+      section.appendChild(label);
+      section.appendChild(num);
+      content.appendChild(section);
+
+      if (count % 2 === 0) section.classList.add("section-alt");
     }
-});
-</script>
+
+    for (let i = 0; i < 10; i++) addSection();
+
+    window.addEventListener("scroll", () => {
+      const sections = document.querySelectorAll(".section");
+      for (const s of sections) {
+        const rect = s.getBoundingClientRect();
+        if (rect.top >= 60 && rect.top < window.innerHeight / 2) {
+          const n = s.querySelector(".section-number").textContent;
+          counter.textContent = "section " + n;
+          break;
+        }
+      }
+
+
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+        for (let i = 0; i < 5; i++) addSection();
+      }
+    });
+  </script>
 
 </body>
 </html>
