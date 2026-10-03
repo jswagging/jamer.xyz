@@ -1,37 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - jamer.xyz</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="resources/css/404.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jamer.xyz - 404</title>
+    <link rel="stylesheet" href="../resources/css/404.css" />
 </head>
+
 <body>
 
-  <section class="definition">
-    <div class="def-header">
-      <h1 class="word">404</h1>
-      <p class="pronunciation">/<span class="ipa">fɔːr.oʊ.fɔːr</span>/ <span class="paren">(pronounced four-oh-four)</span></p>
-      <p class="pos"><em>noun</em></p>
-    </div>
+    <canvas id="leaves"></canvas>
 
-    <div class="def-body">
-      <p class="definition-text">the page you're looking for doesn't exist or was moved</p>
-    </div>
+    <div class="title">404 - subdomain not found</div>
 
-    <p class="nickname">"oops"</p>
+    <script>
+        const LEAF_IMAGE = "leaf.png";
 
-    <hr class="divider" />
-  </section>
+        const FALLING_LEAVES = 30;
+        const LEAF_SPEED = 0.2;
 
-  <section class="nav-section">
-    <a href="https://jamer.xyz" class="nav-link">← back to main page</a>
-  </section>
+        const canvas = document.getElementById("leaves");
+        const ctx = canvas.getContext("2d");
 
-  <div class="watermark">jamer</div>
+        const image = new Image();
+        image.src = LEAF_IMAGE;
+
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+
+        const fallingLeaves = [];
+
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function createFallingLeaf(startAnywhere = false) {
+            return {
+                x: random(-50, width + 50),
+                y: startAnywhere ? random(-100, height) : random(-150, -20),
+                size: random(18, 45),
+                speed: random(0.7, 2.2) * LEAF_SPEED,
+                drift: random(-0.5, 0.5),
+                rotation: random(0, Math.PI * 2),
+                rotationSpeed: random(-0.025, 0.025),
+                sway: random(0, Math.PI * 2),
+                swaySpeed: random(0.01, 0.035),
+                swayAmount: random(0.3, 1),
+                opacity: random(0.65, 1)
+            };
+        }
+
+        function initialize() {
+            fallingLeaves.length = 0;
+
+            for (let i = 0; i < FALLING_LEAVES; i++) {
+                fallingLeaves.push(createFallingLeaf(true));
+            }
+        }
+
+        function drawLeaf(leaf) {
+            ctx.save();
+
+            ctx.globalAlpha = leaf.opacity;
+
+            ctx.translate(
+                leaf.x,
+                leaf.y
+            );
+
+            ctx.rotate(leaf.rotation);
+
+            ctx.drawImage(
+                image,
+                -leaf.size / 2,
+                -leaf.size / 2,
+                leaf.size,
+                leaf.size
+            );
+
+            ctx.restore();
+        }
+
+        function updateFallingLeaf(leaf) {
+            leaf.y += leaf.speed;
+
+            leaf.sway += leaf.swaySpeed;
+
+            leaf.x +=
+                leaf.drift +
+                Math.sin(leaf.sway) * leaf.swayAmount;
+
+            leaf.rotation += leaf.rotationSpeed;
+
+            if (
+                leaf.y > height + 100 ||
+                leaf.x < -150 ||
+                leaf.x > width + 150
+            ) {
+                Object.assign(
+                    leaf,
+                    createFallingLeaf(false)
+                );
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (const leaf of fallingLeaves) {
+                updateFallingLeaf(leaf);
+                drawLeaf(leaf);
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        image.onload = () => {
+            resize();
+            initialize();
+            animate();
+        };
+
+        window.addEventListener("resize", resize);
+    </script>
 
 </body>
 </html>
