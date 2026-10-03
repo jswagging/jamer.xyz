@@ -1,4 +1,4 @@
-const LEAF_IMAGE = "../images/leaf.png";
+const LEAF_IMAGE = "../resources/images/leaf.png";
 
         const FALLING_LEAVES = 30;
         const LEAF_SPEED = 0.2;
